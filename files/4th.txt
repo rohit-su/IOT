@@ -1,0 +1,13 @@
+const int DCmotor=7;
+void setup() {
+// put your setup code here, to run once:
+pinMode(DCmotor,OUTPUT);
+digitalWrite(DCmotor,LOW);
+}
+void loop() {
+// put your main code here, to run repeatedly:
+digitalWrite(DCmotor,HIGH);
+delay(10000);
+digitalWrite(DCmotor,LOW);
+delay(3000);
+}
