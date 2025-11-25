@@ -1,0 +1,56 @@
+int LED1 = 9;
+int LED2 = 8;
+int LED3 = 7;
+int LED4 = 6;
+int LED5 = 5;
+void setup(){
+pinMode(LED1 , OUTPUT); //PIN#9
+pinMode(LED2, OUTPUT); //PIN#8
+pinMode(LED3, OUTPUT); //PIN#7
+pinMode(LED4, OUTPUT); //PIN#6
+pinMode(LED5, OUTPUT); //PIN#5
+}
+// CYCLE TO COMPLETE LED-1 to LED-5 BACK
+void loop(){
+digitalWrite(LED1 , HIGH);
+delay(3000);
+digitalWrite(LED1 , LOW);
+delay(1000);
+digitalWrite(LED2, HIGH);
+delay(1000);
+digitalWrite(LED2, LOW);
+delay(1000);
+digitalWrite(LED3, HIGH);
+delay(1000);
+digitalWrite(LED3, LOW);
+delay(1000);
+digitalWrite(LED4, HIGH);
+delay(1000);
+digitalWrite(LED4, LOW);
+delay(1000);
+digitalWrite(LED5, HIGH);
+delay(5000);
+digitalWrite(LED5, LOW);
+delay(5000);
+// CYCLE TO COMPLETE LED-5 to LED-1 FORTH
+digitalWrite(LED5 , HIGH);
+delay(3000);
+digitalWrite(LED5 , LOW);
+delay(1000);
+digitalWrite(LED4, HIGH);
+delay(1000);
+digitalWrite(LED4, LOW);
+delay(1000);
+digitalWrite(LED3, HIGH);
+delay(1000);
+digitalWrite(LED3, LOW);
+delay(1000);
+digitalWrite(LED2, HIGH);
+delay(1000);
+digitalWrite(LED2, LOW);
+delay(1000);
+digitalWrite(LED1, HIGH);
+delay(5000);
+digitalWrite(LED1, LOW);
+delay(5000);
+}
