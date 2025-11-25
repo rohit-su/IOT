@@ -1,0 +1,42 @@
+const int sensor_pin = A1;   // Moisture sensor input
+const int dry_waste = 11;    // Dry waste LED/indicator
+const int wet_waste = 12;    // Wet waste LED/indicator
+const int threshold = 10;    // Moisture threshold
+
+void setup() {
+  Serial.begin(9600);
+
+  // IMPORTANT: Set output pins
+  pinMode(dry_waste, OUTPUT);
+  pinMode(wet_waste, OUTPUT);
+
+  // Sensor pin is automatically INPUT for analogRead()
+}
+
+void loop() {
+
+  int sensor_analog = analogRead(sensor_pin);
+
+  // Convert analog value (0–1023) to moisture percentage
+  float moisture_percentage = 100 - ((sensor_analog / 1023.0) * 100);
+
+  Serial.print("Moisture Percentage = ");
+  Serial.print(moisture_percentage);
+  Serial.println("%");
+
+  // Decision section
+  if (moisture_percentage > threshold) {
+    Serial.println("Wet waste detected");
+
+    digitalWrite(dry_waste, LOW);
+    digitalWrite(wet_waste, HIGH);
+  }
+  else {
+    Serial.println("Dry waste detected");
+
+    digitalWrite(wet_waste, LOW);
+    digitalWrite(dry_waste, HIGH);
+  }
+
+  delay(1000);
+}
