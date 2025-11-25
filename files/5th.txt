@@ -1,0 +1,27 @@
+// Used a NTC(Negative Temperature Coefficient) in this experiment.
+// Connect DO of LDR to A0.
+const int ledPin = 2;
+const int ldrPin = A0;
+#define threshold 200
+void setup()
+{
+Serial.begin(9600);
+pinMode(ledPin, OUTPUT);
+pinMode(ldrPin, INPUT);
+}
+void loop()
+{
+int ldrStatus = analogRead(ldrPin);
+if (ldrStatus>= threshold)
+{
+digitalWrite(ledPin, HIGH);
+Serial.print("Its DARK, Turn on the Street light : ");
+Serial.println(ldrStatus);
+}
+else
+{
+digitalWrite(ledPin, LOW);
+Serial.print("Its BRIGHT, Turn off the Street light : ");
+Serial.println(ldrStatus);
+}
+}
