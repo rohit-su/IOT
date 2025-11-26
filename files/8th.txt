@@ -1,0 +1,32 @@
+int GAS_VAL = 0;
+int threshold = 300;
+
+void setup() {
+  Serial.begin(9600);
+
+  // Output indicator LEDs
+  pinMode(11, OUTPUT);
+  pinMode(12, OUTPUT);
+}
+
+void loop() {
+
+  GAS_VAL = analogRead(A0);
+  Serial.print("Gas Value: ");
+  Serial.println(GAS_VAL);
+
+  if (GAS_VAL < threshold) {
+    // No gas leakage
+    digitalWrite(11, HIGH);
+    digitalWrite(12, LOW);
+    Serial.println("No gas leakage");
+  }
+  else {
+    // Gas leakage detected
+    digitalWrite(11, LOW);
+    digitalWrite(12, HIGH);
+    Serial.println("Gas leakage detected!");
+  }
+
+  delay(2000);
+}
