@@ -1,0 +1,27 @@
+int S1 = 12;
+int S2 = 13;
+void setup()
+{
+Serial.begin(9600);
+pinMode(S1, OUTPUT);
+pinMode(S2, OUTPUT);
+}
+void loop()
+{
+if (Serial.available())
+{
+String received = Serial.readString();
+Serial.print("String Received is: ");
+Serial.println(received);
+delay(1000);
+digitalWrite(S2, LOW);
+digitalWrite(S1, HIGH);
+}
+else
+{
+ Serial.println("no string received");
+ delay(1000);
+ digitalWrite(S1, LOW);
+ digitalWrite(S2, HIGH);
+}
+}
