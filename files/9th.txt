@@ -1,0 +1,23 @@
+#include "DHT.h"
+#define dhtpin 9
+#define dhttype DHT11
+DHT dht(dhtpin,dhttype);
+void setup() {
+// put your setup code here, to run once:
+Serial.begin(9600);
+dht.begin();
+}
+void loop() {
+// put your main code here, to run repeatedly:
+float humi=dht.readHumidity();
+float tempC=dht.readTemperature();
+Serial.println("Welcome to the Weather reading Station. ");
+Serial.print("The Humidity is: ");
+Serial.print(humi);
+Serial.print("%");
+Serial.print(" | ");
+Serial.print("The temperature is:");
+Serial.print(tempC);
+Serial.print(" Degree Celcius ~ \n");
+delay(2000);
+}
